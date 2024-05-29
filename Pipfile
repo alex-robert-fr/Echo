@@ -6,10 +6,11 @@ name = "pypi"
 [packages]
 django = "==5.*"
 psycopg2-binary = "==2.*"
+pipfile = "*"
 
 [dev-packages]
 flake8 = "*"
-coverage = "7.*"
+coverage = "==7.*"
 
 [requires]
 python_version = "3.12"
