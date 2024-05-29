@@ -9,6 +9,7 @@ psycopg2-binary = "==2.*"
 
 [dev-packages]
 flake8 = "*"
+coverage = "7.*"
 
 [requires]
 python_version = "3.12"
