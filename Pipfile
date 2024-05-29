@@ -5,8 +5,10 @@ name = "pypi"
 
 [packages]
 django = "==5.*"
+psycopg2-binary = "==2.*"
 
 [dev-packages]
+flake8 = "*"
 
 [requires]
 python_version = "3.12"
