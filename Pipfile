@@ -9,7 +9,8 @@ psycopg2-binary = "==2.*"
 pipfile = "*"
 
 [dev-packages]
-flake8 = "*"
+flake8 = "==7.*"
+isort = "==5.*"
 coverage = "==7.*"
 
 [requires]
