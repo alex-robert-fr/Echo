@@ -14,7 +14,8 @@ jobs:
         with:
           python-version: "3.12.3"
           architecture: "x64"
-      - run: python -m pip install pipenv
+      - name: Install pipenv
+        run: python -m pip install pipenv
       - uses: syphar/restore-virtualenv@v1
         id: cache-virtualenv
         with:
@@ -33,14 +34,22 @@ jobs:
         with:
           python-version: "3.12.3"
           architecture: "x64"
+      - name: Install pipenv
+        run: python -m pip install pipenv
       - uses: syphar/restore-virtualenv@v1
         id: cache-virtualenv
         with:
           requirement_files: Pipfile.lock
-      - run: python -m pip install pipenv
-      - run: pipenv run flake8 . --show-source --statistics
-      - run: pipenv run isort . --check-only --diff
-      - run: pipenv run pydocstyle .
+      - name: Install dependencies
+        run: pipenv install --dev
+      - name: Run flake8
+        run: pipenv run flake8 . --show-source --statistics
+        env:
+          DJANGO_SETTINGS_MODULE: Echo.settings
+      - name: Run isort
+        run: pipenv run isort . --check-only --diff
+      - name: Run pydocstyle
+        run: pipenv run pydocstyle .
 
   tests:
     needs: create-virtualenv
@@ -64,10 +73,14 @@ jobs:
         with:
           python-version: "3.12.3"
           architecture: "x64"
+      - name: Install pipenv
+        run: python -m pip install pipenv
       - uses: syphar/restore-virtualenv@v1
         id: cache-virtualenv
         with:
           requirement_files: Pipfile.lock
+      - name: Install dependencies
+        run: pipenv install --dev
       - run: |
           pipenv run coverage run --source='.' manage.py test
           pipenv run coverage report --fail-under=93

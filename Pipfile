@@ -9,9 +9,10 @@ psycopg2-binary = "==2.*"
 pipfile = "*"
 
 [dev-packages]
-flake8 = "==7.*"
-isort = "==5.*"
-coverage = "==7.*"
+flake8 = "*"
+isort = "*"
+pydocstyle = "*"
+coverage = "*"
 
 [requires]
 python_version = "3.12"
