@@ -31,16 +31,14 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.12.1"
+          python-version: "3.12.3"
           architecture: "x64"
       - uses: syphar/restore-virtualenv@v1
         id: cache-virtualenv
         with:
           requirement_files: Pipfile.lock
-
+      - run: python -m pip install pipenv
       - run: pipenv run flake8 . --show-source --statistics
-        env:
-          DJANGO_SETTINGS_MODULE: Echo.settings
       - run: pipenv run isort . --check-only --diff
       - run: pipenv run pydocstyle .
 
