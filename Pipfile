@@ -1,0 +1,20 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "==5.*"
+psycopg2-binary = "==2.*"
+pipfile = "*"
+
+[dev-packages]
+flake8 = "*"
+isort = "*"
+pydocstyle = "*"
+coverage = "*"
+pre-commit = "*"
+
+[requires]
+python_version = "3.12"
+python_full_version = "3.12.3"
